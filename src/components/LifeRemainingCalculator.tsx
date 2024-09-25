@@ -50,7 +50,12 @@ const LifeGrid: React.FC<LifeGridProps> = ({ totalWeeks, livedWeeks, remainingSc
   );
 };
 
-const RemainingLifeGrid = ({ remainingWeeks, screenWeeks, sleepWeeks }) => {
+interface RemainingLifeGridProps {
+  remainingWeeks: number;
+  screenWeeks: number;
+  sleepWeeks: number;
+}
+const RemainingLifeGrid: React.FC<RemainingLifeGridProps> = ({ remainingWeeks, screenWeeks, sleepWeeks }) => {
   const weeksPerRow = 52; // 52 weeks per year
   const totalRows = Math.ceil(remainingWeeks / weeksPerRow);
 

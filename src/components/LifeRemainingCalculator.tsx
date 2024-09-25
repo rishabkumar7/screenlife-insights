@@ -9,11 +9,9 @@ import Footer from '@/components/Footer';
 interface LifeGridProps {
   totalWeeks: number;
   livedWeeks: number;
-  remainingScreenWeeks: number;
-  remainingSleepWeeks: number;
 }
 
-const LifeGrid: React.FC<LifeGridProps> = ({ totalWeeks, livedWeeks, remainingScreenWeeks, remainingSleepWeeks }) => {
+const LifeGrid: React.FC<LifeGridProps> = ({ totalWeeks, livedWeeks }) => {
   const weeksPerRow = 52; // 52 weeks per year
   const totalRows = Math.ceil(totalWeeks / weeksPerRow);
 
@@ -26,15 +24,6 @@ const LifeGrid: React.FC<LifeGridProps> = ({ totalWeeks, livedWeeks, remainingSc
             let color = 'bg-gray-300'; // Default remaining life
             if (weekIndex < livedWeeks) {
               color = 'bg-red-500'; // Lived life
-            } else {
-              const remainingIndex = weekIndex - livedWeeks;
-              if (remainingIndex < remainingScreenWeeks) {
-                color = 'bg-blue-500'; // Future screen time
-              } else if (remainingIndex < remainingScreenWeeks + remainingSleepWeeks) {
-                color = 'bg-purple-500'; // Future sleep time
-              } else {
-                color = 'bg-gray-300'; // Future waking time
-              }
             }
             return (
               <div

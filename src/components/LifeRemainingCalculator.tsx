@@ -4,9 +4,16 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import Footer from '@/components/Footer'; 
+import Footer from '@/components/Footer';
 
-const LifeGrid = ({ totalWeeks, livedWeeks, remainingScreenWeeks, remainingSleepWeeks }) => {
+interface LifeGridProps {
+  totalWeeks: number;
+  livedWeeks: number;
+  remainingScreenWeeks: number;
+  remainingSleepWeeks: number;
+}
+
+const LifeGrid: React.FC<LifeGridProps> = ({ totalWeeks, livedWeeks, remainingScreenWeeks, remainingSleepWeeks }) => {
   const weeksPerRow = 52; // 52 weeks per year
   const totalRows = Math.ceil(totalWeeks / weeksPerRow);
 
